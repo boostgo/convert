@@ -1,11 +1,11 @@
 package convert
 
 // BoolFromString convert string to bool
-func BoolFromString(input string) bool {
-	return input == "true" || input == "TRUE"
+func BoolFromString(x string) bool {
+	return x == "true" || x == "TRUE"
 }
 
 // BoolFromInt convert any integer type to bool
-func BoolFromInt[T Integer](input T) bool {
-	return input == 1
+func BoolFromInt[T Integer](x T) bool {
+	return x == 1
 }

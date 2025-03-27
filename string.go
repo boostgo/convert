@@ -7,90 +7,90 @@ import (
 )
 
 // StringFromBytes convert bytes array/slice to string with no allocation.
-func StringFromBytes(buffer []byte) string {
-	return *(*string)(unsafe.Pointer(&buffer))
+func StringFromBytes(x []byte) string {
+	return *(*string)(unsafe.Pointer(&x))
 }
 
 // StringFromInt8 convert int8 to string
-func StringFromInt8(integer int8) string {
-	return strconv.Itoa(int(integer))
+func StringFromInt8(x int8) string {
+	return strconv.Itoa(int(x))
 }
 
 // StringFromInt16 convert int16 to string
-func StringFromInt16(integer int16) string {
-	return strconv.Itoa(int(integer))
+func StringFromInt16(x int16) string {
+	return strconv.Itoa(int(x))
 }
 
 // StringFromInt32 convert int32 to string
-func StringFromInt32(integer int32) string {
-	return strconv.Itoa(int(integer))
+func StringFromInt32(x int32) string {
+	return strconv.Itoa(int(x))
 }
 
 // StringFromInt64 convert int64 to string
-func StringFromInt64(integer int64) string {
-	return strconv.FormatInt(integer, 10)
+func StringFromInt64(x int64) string {
+	return strconv.FormatInt(x, 10)
 }
 
 // StringFromInt convert int to string
-func StringFromInt(integer int) string {
-	return strconv.Itoa(integer)
+func StringFromInt(x int) string {
+	return strconv.Itoa(x)
 }
 
 // StringFromUint8 convert uint8 to string
-func StringFromUint8(integer uint8) string {
-	return strconv.FormatUint(uint64(integer), 10)
+func StringFromUint8(x uint8) string {
+	return strconv.FormatUint(uint64(x), 10)
 }
 
 // StringFromUint16 convert uint16 to string
-func StringFromUint16(integer uint16) string {
-	return strconv.FormatUint(uint64(integer), 10)
+func StringFromUint16(x uint16) string {
+	return strconv.FormatUint(uint64(x), 10)
 }
 
 // StringFromUint32 convert uint32 to string
-func StringFromUint32(integer uint32) string {
-	return strconv.FormatUint(uint64(integer), 10)
+func StringFromUint32(x uint32) string {
+	return strconv.FormatUint(uint64(x), 10)
 }
 
 // StringFromUint64 convert uint64 to string
-func StringFromUint64(integer uint64) string {
-	return strconv.FormatUint(integer, 10)
+func StringFromUint64(x uint64) string {
+	return strconv.FormatUint(x, 10)
 }
 
 // StringFromUint convert uint to string
-func StringFromUint(integer uint) string {
-	return strconv.FormatUint(uint64(integer), 10)
+func StringFromUint(x uint) string {
+	return strconv.FormatUint(uint64(x), 10)
 }
 
 // StringFromFloat32 convert float32 to string
-func StringFromFloat32(integer float32) string {
-	return strconv.FormatFloat(float64(integer), 'E', -1, 32)
+func StringFromFloat32(x float32) string {
+	return strconv.FormatFloat(float64(x), 'E', -1, 32)
 }
 
 // StringFromFloat64 convert float64 to string
-func StringFromFloat64(integer float64) string {
-	return strconv.FormatFloat(integer, 'E', -1, 32)
+func StringFromFloat64(x float64) string {
+	return strconv.FormatFloat(x, 'E', -1, 32)
 }
 
 // StringFromBool convert bool to string
-func StringFromBool(flag bool) string {
+func StringFromBool(x bool) string {
 	const (
 		t = "true"
 		f = "false"
 	)
 
-	if flag {
+	if x {
 		return t
 	}
 
 	return f
 }
 
-func String(value any) string {
-	if value == nil {
+func String(x any) string {
+	if x == nil {
 		return ""
 	}
 
-	switch v := value.(type) {
+	switch v := x.(type) {
 	case []byte:
 		if v == nil {
 			return ""
@@ -222,10 +222,10 @@ func String(value any) string {
 
 		return StringFromBool(*v)
 	default:
-		if value == nil {
+		if x == nil {
 			return ""
 		}
 
-		return fmt.Sprintf("%v", value)
+		return fmt.Sprintf("%v", x)
 	}
 }

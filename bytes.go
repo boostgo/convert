@@ -6,10 +6,10 @@ import (
 )
 
 // BytesFromString converts string to bytes slice with no allocation
-func BytesFromString(s string) []byte {
+func BytesFromString(x string) []byte {
 	return *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{
-		Data: (*(*reflect.StringHeader)(unsafe.Pointer(&s))).Data,
-		Len:  len(s),
-		Cap:  len(s),
+		Data: (*(*reflect.StringHeader)(unsafe.Pointer(&x))).Data,
+		Len:  len(x),
+		Cap:  len(x),
 	}))
 }
