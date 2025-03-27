@@ -1,6 +1,7 @@
 package convert
 
 import (
+	"fmt"
 	"strconv"
 	"unsafe"
 )
@@ -82,4 +83,149 @@ func StringFromBool(flag bool) string {
 	}
 
 	return f
+}
+
+func String(value any) string {
+	if value == nil {
+		return ""
+	}
+
+	switch v := value.(type) {
+	case []byte:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromBytes(v)
+	case string:
+		return v
+	case *string:
+		if v == nil {
+			return ""
+		}
+
+		return *v
+	case fmt.Stringer:
+		if v == nil {
+			return ""
+		}
+
+		return v.String()
+	case error:
+		if v == nil {
+			return ""
+		}
+
+		return v.Error()
+	case int8:
+		return StringFromInt8(v)
+	case *int8:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromInt8(*v)
+	case int16:
+		return StringFromInt16(v)
+	case *int16:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromInt16(*v)
+	case int32:
+		return StringFromInt32(v)
+	case *int32:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromInt32(*v)
+	case int64:
+		return StringFromInt64(v)
+	case *int64:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromInt64(*v)
+	case int:
+		return StringFromInt(v)
+	case *int:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromInt(*v)
+	case uint8:
+		return StringFromUint8(v)
+	case *uint8:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromUint8(*v)
+	case uint16:
+		return StringFromUint16(v)
+	case *uint16:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromUint16(*v)
+	case uint32:
+		return StringFromUint32(v)
+	case *uint32:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromUint32(*v)
+	case uint64:
+		return StringFromUint64(v)
+	case *uint64:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromUint64(*v)
+	case uint:
+		return StringFromUint(v)
+	case *uint:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromUint(*v)
+	case float32:
+		return StringFromFloat32(v)
+	case *float32:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromFloat32(*v)
+	case float64:
+		return StringFromFloat64(v)
+	case *float64:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromFloat64(*v)
+	case bool:
+		return StringFromBool(v)
+	case *bool:
+		if v == nil {
+			return ""
+		}
+
+		return StringFromBool(*v)
+	default:
+		if value == nil {
+			return ""
+		}
+
+		return fmt.Sprintf("%v", value)
+	}
 }
