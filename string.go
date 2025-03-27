@@ -63,12 +63,12 @@ func StringFromUint(x uint) string {
 
 // StringFromFloat32 convert float32 to string
 func StringFromFloat32(x float32) string {
-	return strconv.FormatFloat(float64(x), 'E', -1, 32)
+	return fmt.Sprintf("%f", x)
 }
 
 // StringFromFloat64 convert float64 to string
 func StringFromFloat64(x float64) string {
-	return strconv.FormatFloat(x, 'E', -1, 32)
+	return fmt.Sprintf("%g", x)
 }
 
 // StringFromBool convert bool to string

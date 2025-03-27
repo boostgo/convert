@@ -1,5 +1,7 @@
 package convert
 
+import "strconv"
+
 // Float32FromInt convert any integer type value to float32
 func Float32FromInt[T Integer](x T) float32 {
 	return float32(x)
@@ -10,11 +12,39 @@ func Float64FromInt[T Integer](x T) float64 {
 	return float64(x)
 }
 
+// Float32FromString convert string to float32
+func Float32FromString(x string) float32 {
+	result, err := strconv.ParseFloat(x, 32)
+	if err != nil {
+		return 0
+	}
+
+	return float32(result)
+}
+
+// Float64FromString convert string to float64
+func Float64FromString(x string) float64 {
+	result, err := strconv.ParseFloat(x, 64)
+	if err != nil {
+		return 0
+	}
+
+	return result
+}
+
 // Float32 convert any value to float32.
 //
 // If value is nil return 0.
 func Float32(x any) float32 {
 	switch v := x.(type) {
+	case string:
+		return Float32FromString(v)
+	case *string:
+		if v == nil {
+			return 0
+		}
+
+		return Float32FromString(*v)
 	case float32:
 		return v
 	case *float32:
@@ -121,6 +151,14 @@ func Float32(x any) float32 {
 // If value is nil return 0.
 func Float64(x any) float64 {
 	switch v := x.(type) {
+	case string:
+		return Float64FromString(v)
+	case *string:
+		if v == nil {
+			return 0
+		}
+
+		return Float64FromString(*v)
 	case float32:
 		return float64(v)
 	case *float32:
