@@ -10,11 +10,16 @@ func BoolFromInt[T Integer](x T) bool {
 	return x == 1
 }
 
+// Bool convert any value to bool.
+//
+// If x is nil returns false.
+//
+// If x is string, value should be "true" or "TRUE"
 func Bool(x any) bool {
 	if x == nil {
 		return false
 	}
-
+	
 	switch v := x.(type) {
 	case bool:
 		return v

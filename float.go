@@ -1,13 +1,18 @@
 package convert
 
+// Float32FromInt convert any integer type value to float32
 func Float32FromInt[T Integer](x T) float32 {
 	return float32(x)
 }
 
+// Float64FromInt convert any integer type value to float64
 func Float64FromInt[T Integer](x T) float64 {
 	return float64(x)
 }
 
+// Float32 convert any value to float32.
+//
+// If value is nil return 0.
 func Float32(x any) float32 {
 	switch v := x.(type) {
 	case float32:
@@ -111,6 +116,9 @@ func Float32(x any) float32 {
 	}
 }
 
+// Float64 convert any value to float32.
+//
+// If value is nil return 0.
 func Float64(x any) float64 {
 	switch v := x.(type) {
 	case float32:

@@ -1,5 +1,8 @@
 package convert
 
+// Int convert any value to int.
+//
+// If x is nil returns 0
 func Int(x any) int {
 	switch v := x.(type) {
 	case int:
@@ -103,6 +106,9 @@ func Int(x any) int {
 	}
 }
 
+// Int8 convert any value to int8.
+//
+// If x is nil returns 0
 func Int8(x any) int8 {
 	switch v := x.(type) {
 	case int8:
@@ -206,6 +212,9 @@ func Int8(x any) int8 {
 	}
 }
 
+// Int16 convert any value to int16.
+//
+// If x is nil returns 0
 func Int16(x any) int16 {
 	switch v := x.(type) {
 	case int16:
@@ -309,6 +318,9 @@ func Int16(x any) int16 {
 	}
 }
 
+// Int32 convert any value to int32.
+//
+// If x is nil returns 0
 func Int32(x any) int32 {
 	switch v := x.(type) {
 	case int8:
@@ -404,6 +416,9 @@ func Int32(x any) int32 {
 	}
 }
 
+// Int64 convert any value to int64.
+//
+// If x is nil returns 0
 func Int64(x any) int64 {
 	switch v := x.(type) {
 	case int8:
@@ -499,6 +514,9 @@ func Int64(x any) int64 {
 	}
 }
 
+// Uint convert any value to uint.
+//
+// If x is nil returns 0
 func Uint(x any) uint {
 	switch v := x.(type) {
 	case int8:
@@ -594,6 +612,9 @@ func Uint(x any) uint {
 	}
 }
 
+// Uint8 convert any value to uint8.
+//
+// If x is nil returns 0
 func Uint8(x any) uint8 {
 	switch v := x.(type) {
 	case int8:
@@ -689,6 +710,9 @@ func Uint8(x any) uint8 {
 	}
 }
 
+// Uint16 convert any value to uint16.
+//
+// If x is nil returns 0
 func Uint16(x any) uint16 {
 	switch v := x.(type) {
 	case int8:
@@ -784,6 +808,9 @@ func Uint16(x any) uint16 {
 	}
 }
 
+// Uint32 convert any value to uint32.
+//
+// If x is nil returns 0
 func Uint32(x any) uint32 {
 	switch v := x.(type) {
 	case int8:
@@ -879,6 +906,9 @@ func Uint32(x any) uint32 {
 	}
 }
 
+// Uint64 convert any value to uint64.
+//
+// If x is nil returns 0
 func Uint64(x any) uint64 {
 	switch v := x.(type) {
 	case int8:

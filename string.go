@@ -85,6 +85,15 @@ func StringFromBool(x bool) string {
 	return f
 }
 
+// String converts any value to string.
+//
+// If x is nil returns empty string.
+//
+// If x is implementation of fmt.Stringer interface calls .String() method.
+//
+// If x is error implementation calls .Error() method.
+//
+// If x is link type data (slice, map, etc...) convert it to bytes by JSON marshaller and then to string
 func String(x any) string {
 	if x == nil {
 		return ""

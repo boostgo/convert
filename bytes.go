@@ -2,6 +2,7 @@ package convert
 
 import (
 	"encoding/json"
+	"fmt"
 	"reflect"
 	"unsafe"
 )
@@ -15,6 +16,13 @@ func BytesFromString(x string) []byte {
 	}))
 }
 
+// Bytes convert any value to bytes.
+//
+// If x is string calls BytesFromString function.
+//
+// If x is numeric convert it by json marshaller.
+//
+// If x is fmt.Stringer implementation calls .String() method and then to bytes.
 func Bytes(x any) []byte {
 	if x == nil {
 		return nil
@@ -31,6 +39,8 @@ func Bytes(x any) []byte {
 		}
 
 		return BytesFromString(*v)
+	case fmt.Stringer:
+		return BytesFromString(v.String())
 	default:
 		blob, err := json.Marshal(x)
 		if err != nil {
