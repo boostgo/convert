@@ -94,36 +94,6 @@ func TestCode(t *testing.T) {
 	}
 }
 
-func TestCyrillic(t *testing.T) {
-	type args struct {
-		input string
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		{
-			name: "Simple",
-			args: args{input: "привет"},
-			want: "privet",
-		},
-		{
-			name: "Uppercase",
-			args: args{input: "ПРИВЕТ"},
-			want: "privet",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Cyrillic(tt.args.input); got != tt.want {
-				t.Errorf("Cyrillic() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
 func TestEveryTitle(t *testing.T) {
 	type args struct {
 		input string

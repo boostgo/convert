@@ -5,7 +5,6 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/mehanizm/iuliia-go"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -111,19 +110,6 @@ func AlphaNumeric(input string) string {
 	}
 
 	return Clear(string(result))
-}
-
-// Cyrillic format input from cyrillic text to latin-code format.
-// Example:
-//
-//	Input: Привет
-//	Output: privet
-func Cyrillic(input string) string {
-	if input == "" {
-		return ""
-	}
-
-	return Code(iuliia.Wikipedia.Translate(Clear(input)))
 }
 
 // EveryTitle makes every word start with uppercase.
