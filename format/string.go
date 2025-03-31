@@ -4,9 +4,6 @@ import (
 	"regexp"
 	"strings"
 	"unicode"
-
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
 )
 
 var (
@@ -118,7 +115,21 @@ func AlphaNumeric(input string) string {
 //	Input: HELLO WORLD
 //	Output: Hello World
 func EveryTitle(input string) string {
-	return cases.Title(language.Und).String(strings.ToLower(Clear(input)))
+	// convert the entire string to lowercase
+	lower := strings.ToLower(Clear(input))
+
+	// split the string into words
+	words := strings.Fields(lower)
+
+	// capitalize the first letter of each word
+	for i, word := range words {
+		if len(word) > 0 {
+			words[i] = string(unicode.ToUpper(rune(word[0]))) + word[1:]
+		}
+	}
+
+	// join the words back together
+	return strings.Join(words, " ")
 }
 
 // Name format input to First/Last name format.
