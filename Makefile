@@ -2,6 +2,9 @@ CURRENT_DIR=$(shell pwd)
 APP=$(shell basename ${CURRENT_DIR})
 APP_CMD_DIR=${CURRENT_DIR}/cmd
 
+last-tag: ## Get last git tag
+	git describe --tags
+
 # Run all linters
 lint:
 	@echo "Running golangci-lint..."
