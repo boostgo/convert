@@ -14,6 +14,16 @@ func IntFromBool(x bool) int {
 	return result
 }
 
+// IntFromFloat32 convert float32 to any integer type
+func IntFromFloat32[T Integer](x float32) T {
+	return T(x)
+}
+
+// IntFromFloat64 convert float64 to any integer type
+func IntFromFloat64[T Integer](x float64) T {
+	return T(x)
+}
+
 // Int8FromBool convert bool to int8.
 //
 // If x equals true returns 1, otherwise 0
