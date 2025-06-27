@@ -1,3 +1,4 @@
+//nolint:gocyclo,funlen
 package convert
 
 import "strconv"

@@ -1,3 +1,4 @@
+//nolint:gosec,gocyclo,funlen
 package convert
 
 import "strconv"
@@ -687,7 +688,7 @@ func Int64(x any) int64 {
 			return 0
 		}
 
-		return int64(*v)
+		return *v
 	case uint:
 		return int64(v)
 	case *uint:
@@ -803,13 +804,13 @@ func Uint(x any) uint {
 
 		return uint(*v)
 	case uint:
-		return uint(v)
+		return v
 	case *uint:
 		if v == nil {
 			return 0
 		}
 
-		return uint(*v)
+		return *v
 	case uint8:
 		return uint(v)
 	case *uint8:
@@ -925,13 +926,13 @@ func Uint8(x any) uint8 {
 
 		return uint8(*v)
 	case uint8:
-		return uint8(v)
+		return v
 	case *uint8:
 		if v == nil {
 			return 0
 		}
 
-		return uint8(*v)
+		return *v
 	case uint16:
 		return uint8(v)
 	case *uint16:
@@ -1175,7 +1176,7 @@ func Uint32(x any) uint32 {
 			return 0
 		}
 
-		return uint32(*v)
+		return *v
 	case uint64:
 		return uint32(v)
 	case *uint64:

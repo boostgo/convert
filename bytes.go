@@ -1,3 +1,4 @@
+//nolint:govet,gocritic
 package convert
 
 import (

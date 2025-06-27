@@ -6,9 +6,7 @@ import (
 	"unicode"
 )
 
-var (
-	_manySpacesReg = regexp.MustCompile("\\s{2,}")
-)
+var _manySpacesReg = regexp.MustCompile("\\s{2,}")
 
 // Title format input to "title" format.
 // "Title" format is first sentence letter uppercase and other lowercase.

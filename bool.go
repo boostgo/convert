@@ -1,3 +1,4 @@
+//nolint:gocyclo,funlen
 package convert
 
 // BoolFromString convert string to bool
@@ -19,7 +20,7 @@ func Bool(x any) bool {
 	if x == nil {
 		return false
 	}
-	
+
 	switch v := x.(type) {
 	case bool:
 		return v

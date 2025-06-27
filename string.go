@@ -1,3 +1,4 @@
+//nolint:gocognit,gocyclo
 package convert
 
 import (
@@ -94,6 +95,8 @@ func StringFromBool(x bool) string {
 // If x is error implementation calls .Error() method.
 //
 // If x is link type data (slice, map, etc...) convert it to bytes by JSON marshaller and then to string
+//
+//nolint:funlen
 func String(x any) string {
 	if x == nil {
 		return ""
